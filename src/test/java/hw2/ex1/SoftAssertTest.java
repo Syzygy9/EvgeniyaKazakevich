@@ -1,6 +1,6 @@
 package hw2.ex1;
 
-import hw2.PreAssertionClass;
+import hw2.BasicClass;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -10,7 +10,7 @@ import org.testng.asserts.SoftAssert;
 import java.util.List;
 
 
-public class SoftAssertTest extends PreAssertionClass {
+public class SoftAssertTest extends BasicClass {
 
     String login = "Roman";
     String password = "Jdi1234";

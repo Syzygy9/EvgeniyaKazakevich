@@ -1,9 +1,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="All the tests suite">
-    <test name="all-tests">
+<suite name="All tests suites">
+    <test name="All tests">
         <packages>
-            <package name="hw2.exercise1"/>
-            <package name="hw2.exercise2"/>
+            <package name="hw2.ex1"/>
+            <package name="hw2.ex2"/>
         </packages>
     </test>
 </suite>

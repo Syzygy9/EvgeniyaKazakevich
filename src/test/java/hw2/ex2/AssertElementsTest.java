@@ -1,6 +1,6 @@
 package hw2.ex2;
 
-import hw2.PreAssertionClass;
+import hw2.BasicClass;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
-public class AssertElementsTest extends PreAssertionClass {
+public class AssertElementsTest extends BasicClass {
 
     String login = "Roman";
     String password = "Jdi1234";
@@ -58,13 +58,16 @@ public class AssertElementsTest extends PreAssertionClass {
         •	for dropdown there is a log row and value is corresponded to the selected value.
 
        */
-        WebElement elementWater = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li[contains(text(),'Water: condition changed to true')]")));
+        WebElement elementWater = driver.findElement(By.xpath("//li[contains(text(),'Water: condition changed to true')]"));
         assertTrue(elementWater.isDisplayed(), "Water checkbox is not displayed in log row");
-        WebElement elementWind = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li[contains(text(),'Wind: condition changed to true')]")));
+
+        WebElement elementWind = driver.findElement(By.xpath("//li[contains(text(),'Wind: condition changed to true')]"));
         assertTrue(elementWind.isDisplayed(), "Wind checkbox is not displayed in log row");
-        WebElement elementSelen = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li[contains(text(),'metal: value changed to  Selen')]")));
+
+        WebElement elementSelen = driver.findElement(By.xpath("//li[contains(text(),'metal: value changed to  Selen')]"));
         assertTrue(elementSelen.isDisplayed(), "Selen radio button is not displayed in log row");
-        WebElement elementYellow = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li[contains(text(),'Colors: value changed to Yellow')]")));
+
+        WebElement elementYellow = driver.findElement(By.xpath("//li[contains(text(),'Colors: value changed to Yellow')]"));
         assertTrue(elementYellow.isDisplayed(), "Dropdown selected color is not displayed in log row");
 
     }

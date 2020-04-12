@@ -10,7 +10,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 
-public class PreAssertionClass {
+public class BasicClass {
 
     protected WebDriver driver;
     protected WebDriverWait wait;

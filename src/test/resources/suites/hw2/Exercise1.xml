@@ -1,8 +1,8 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="All the tests suite">
-    <test name="all-tests">
+<suite name="Exercise 1">
+    <test name="Soft Assert Test">
         <packages>
-            <package name="hw2.Exercise1"/>
+            <package name="hw2.ex1"/>
         </packages>
     </test>
 </suite>
