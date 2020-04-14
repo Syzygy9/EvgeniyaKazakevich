@@ -15,8 +15,13 @@
         <java.source.version>1.8</java.source.version>
         <java.target.version>1.8</java.target.version>
         <testing.version>7.0.0</testing.version>
+        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
         <calculator.version>1.0</calculator.version>
+        <seleniumhq.version>3.141.59</seleniumhq.version>
+        <commons.io.version>2.6</commons.io.version>
+        <webdrivermanager.version>3.8.1</webdrivermanager.version>
+
     </properties>
 
     <dependencies>
@@ -34,36 +39,84 @@
             <systemPath>${project.basedir}/src/test/resources/calculator-1.0.jar</systemPath>
             <scope>system</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${seleniumhq.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${commons.io.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>${webdrivermanager.version}</version>
+        </dependency>
     </dependencies>
 
     <profiles>
         <profile>
-            <id>all-tests</id>
+            <id>hw1-all-tests</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <suite.xml>${project.basedir}/src/test/resources/suites/allTests.xml</suite.xml>
+                <suite.xml>${project.basedir}/src/test/resources/suites/hw1/AllTests.xml</suite.xml>
             </properties>
         </profile>
 
         <profile>
-            <id>addition-and-subtraction</id>
+            <id>hw1-addition-and-subtraction</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <suite.xml>${project.basedir}/src/test/resources/suites/additionAndSubtractionSuite.xml</suite.xml>
+                <suite.xml>${project.basedir}/src/test/resources/suites/hw1/AdditionAndSubtractionSuite.xml</suite.xml>
             </properties>
         </profile>
 
         <profile>
-            <id>multiplication-and-division</id>
+            <id>hw1-multiplication-and-division</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <suite.xml>${project.basedir}/src/test/resources/suites/multiplicationAndDivisionSuite.xml</suite.xml>
+                <suite.xml>${project.basedir}/src/test/resources/suites/hw1/MultiplicationAndDivisionSuite.xml</suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>hw2-all-tests</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>${project.basedir}/src/test/resources/suites/hw2/AllTests.xml</suite.xml>
+        </properties>
+        </profile>
+
+        <profile>
+            <id>hw2-exercise1</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>${project.basedir}/src/test/resources/suites/hw2/Exercise1.xml</suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>hw2-exercise2</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>${project.basedir}/src/test/resources/suites/hw2/Exercise2.xml</suite.xml>
             </properties>
         </profile>
     </profiles>
@@ -72,18 +125,13 @@
         <pluginManagement>
             <plugins>
                 <plugin>
-                    <artifactId>maven-clean-plugin</artifactId>
-                    <version>3.1.0</version>
-                </plugin>
-
-                <plugin>
-                    <artifactId>maven-resources-plugin</artifactId>
-                    <version>3.0.2</version>
-                </plugin>
-
-                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.8.0</version>
+                    <version>${maven-compiler-plugin.version}</version>
+                    <configuration>
+                        <source>${java.source.version}</source>
+                        <target>${java.target.version}</target>
+                    </configuration>
                 </plugin>
 
                 <plugin>
@@ -92,40 +140,12 @@
                     <version>${maven-surefire-plugin.version}</version>
                     <configuration>
                         <suiteXmlFiles>
-                            <XmlFile>${suite.xml}</XmlFile>
+                            <xmlFile>${suite.xml}</xmlFile>
                         </suiteXmlFiles>
                     </configuration>
                 </plugin>
 
-                <plugin>
-                    <artifactId>maven-jar-plugin</artifactId>
-                    <version>3.0.2</version>
-                </plugin>
-
-                <plugin>
-                    <artifactId>maven-install-plugin</artifactId>
-                    <version>2.5.2</version>
-                </plugin>
-
-                <plugin>
-                    <artifactId>maven-deploy-plugin</artifactId>
-                    <version>2.8.2</version>
-                </plugin>
-
-                <plugin>
-                    <artifactId>maven-site-plugin</artifactId>
-                    <version>3.7.1</version>
-                </plugin>
-
-                <plugin>
-                    <artifactId>maven-project-info-reports-plugin</artifactId>
-                    <version>3.1.8</version>
-                    <configuration>
-                        <source>${java.source.version}</source>
-                        <target>${java.target.version}</target>
-                    </configuration>
-                </plugin>
-            </plugins>
+                </plugins>
         </pluginManagement>
 
     </build>
