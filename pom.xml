@@ -119,6 +119,16 @@
                 <suite.xml>${project.basedir}/src/test/resources/suites/hw2/Exercise2.xml</suite.xml>
             </properties>
         </profile>
+
+        <profile>
+            <id>hw3-all-tests</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src/test/resources/suites/hw3/AllTests.xml</suite.xml>
+            </properties>
+        </profile>
     </profiles>
 
     <build>
@@ -144,7 +154,6 @@
                         </suiteXmlFiles>
                     </configuration>
                 </plugin>
-
                 </plugins>
         </pluginManagement>
 
