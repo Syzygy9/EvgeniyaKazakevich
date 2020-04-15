@@ -58,17 +58,21 @@ public class AssertElementsTest extends BasicClass {
         •	for dropdown there is a log row and value is corresponded to the selected value.
 
        */
-        WebElement elementWater = driver.findElement(By.xpath("//li[contains(text(),'Water: condition changed to true')]"));
-        assertTrue(elementWater.isDisplayed(), "Water checkbox is not displayed in log row");
+        WebElement elementWater = driver.findElement(By.xpath("//li[contains(text(),'Water') and contains(text(),'true')]"));
+        assertEquals (elementWater.getText().substring(9),"Water: condition changed to true");
+        assertTrue(elementWater.isDisplayed());
 
-        WebElement elementWind = driver.findElement(By.xpath("//li[contains(text(),'Wind: condition changed to true')]"));
-        assertTrue(elementWind.isDisplayed(), "Wind checkbox is not displayed in log row");
+        WebElement elementWind = driver.findElement(By.xpath("//li[contains(text(),'Wind') and contains(text(),'true')]"));
+        assertEquals (elementWind.getText().substring(9), "Wind: condition changed to true");
+        assertTrue(elementWind.isDisplayed());
 
-        WebElement elementSelen = driver.findElement(By.xpath("//li[contains(text(),'metal: value changed to  Selen')]"));
-        assertTrue(elementSelen.isDisplayed(), "Selen radio button is not displayed in log row");
+        WebElement elementSelen = driver.findElement(By.xpath("//li[contains(text(),'metal') and contains(text(),'Selen')]"));
+        assertEquals (elementSelen.getText().substring(9), "metal: value changed to Selen");
+        assertTrue(elementSelen.isDisplayed());
 
-        WebElement elementYellow = driver.findElement(By.xpath("//li[contains(text(),'Colors: value changed to Yellow')]"));
-        assertTrue(elementYellow.isDisplayed(), "Dropdown selected color is not displayed in log row");
+        WebElement elementYellow = driver.findElement(By.xpath("//li[contains(text(),'Colors') and contains(text(),'Yellow')]"));
+        assertEquals(elementYellow.getText().substring(9), "Colors: value changed to Yellow");
+        assertTrue(elementYellow.isDisplayed());
 
     }
 
