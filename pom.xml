@@ -129,7 +129,37 @@
                 <suite.xml>src/test/resources/suites/hw3/AllTests.xml</suite.xml>
             </properties>
         </profile>
-    </profiles>
+
+        <profile>
+            <id>hw4-exercise1</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>${project.basedir}/src/test/resources/suites/hw4/Exercise1.xml</suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>hw4-exercise2</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>${project.basedir}/src/test/resources/suites/hw4/Exercise2.xml</suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>hw4-all-tests</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>${project.basedir}/src/test/resources/suites/hw4/allTests.xml</suite.xml>
+            </properties>
+            </profile>
+        </profiles>
 
     <build>
         <pluginManagement>
