@@ -23,7 +23,7 @@ public class BaseTest {
         wait =  WebDriverSingleton.INSTANCE.getWait();
     }
 
-    @AfterSuite
+    @AfterMethod
     public void tearDown() {
         driver.quit();
 

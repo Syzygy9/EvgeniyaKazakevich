@@ -95,24 +95,33 @@ public class Test2 extends BaseTest {
         // 6. Check Results block output on the right-side
         for (WebElement result : MetalsAndColorsPage.getWebElements("results")) {
 
-            if (dataList.getSummary() != null && result.getText().contains("Summary")) {
+            if (dataList.getSummary() != null
+                && result.getText().contains("Summary")) {
                 softAssert.assertTrue(result.getText().contains(Summary.summ(dataList.getSummary())));
             }
 
-            if (dataList.getElements() != null && result.getText().contains("Elements")) {
-                softAssert.assertTrue(result.getText().contains(String.join(", ", dataList.getElements())));
+            if (dataList.getElements() != null
+                && result.getText().contains("Elements")) {
+                softAssert.assertTrue(result.getText()
+                        .contains(String.join(", ", dataList.getElements())));
             }
 
-            if (dataList.getColors() != null && result.getText().contains("Colors")) {
-                softAssert.assertTrue(result.getText().contains(String.join(", ", dataList.getColors())));
+            if (dataList.getColors() != null
+                && result.getText().contains("Colors")) {
+                softAssert.assertTrue(result.getText()
+                        .contains(String.join(", ", dataList.getColors())));
             }
 
-            if (dataList.getMetals() != null && result.getText().contains("Metals")) {
-                softAssert.assertTrue(result.getText().contains(String.join(",", dataList.getMetals())));
+            if (dataList.getMetals() != null
+                && result.getText().contains("Metals")) {
+                softAssert.assertTrue(result.getText()
+                        .contains(String.join(",", dataList.getMetals())));
             }
 
-            if (dataList.getVegetables() != null && result.getText().contains("Vegetables")) {
-                softAssert.assertTrue(result.getText().contains(String.join(", ", dataList.getVegetables())));
+            if (dataList.getVegetables() != null
+                && result.getText().contains("Vegetables")) {
+                softAssert.assertTrue(result.getText()
+                        .contains(String.join(", ", dataList.getVegetables())));
             }
         }
     }
