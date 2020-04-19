@@ -21,6 +21,10 @@
         <seleniumhq.version>3.141.59</seleniumhq.version>
         <commons.io.version>2.6</commons.io.version>
         <webdrivermanager.version>3.8.1</webdrivermanager.version>
+        <allure-maven-plugin.version>2.10.0</allure-maven-plugin.version>
+        <aspectjweaver.version>1.8.10</aspectjweaver.version>
+        <allure.version>2.13.2</allure.version>
+        <aspectj.version>1.8.10</aspectj.version>
 
     </properties>
 
@@ -56,6 +60,19 @@
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
             <version>${webdrivermanager.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>${allure.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${aspectj.version}</version>
         </dependency>
     </dependencies>
 
@@ -123,10 +140,20 @@
         <profile>
             <id>hw3-all-tests</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <suite.xml>src/test/resources/suites/hw3/AllTests.xml</suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>hw5-all-tests</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>${project.basedir}/src/test/resources/suites/hw5/AllTests.xml</suite.xml>
             </properties>
         </profile>
     </profiles>
@@ -141,6 +168,7 @@
                     <configuration>
                         <source>${java.source.version}</source>
                         <target>${java.target.version}</target>
+                        <encoding>UTF-8</encoding>
                     </configuration>
                 </plugin>
 
@@ -152,6 +180,19 @@
                         <suiteXmlFiles>
                             <xmlFile>${suite.xml}</xmlFile>
                         </suiteXmlFiles>
+                        <argLine>
+                            -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                        </argLine>
+                    </configuration>
+
+                </plugin>
+                <plugin>
+                    <groupId>io.qameta.allure</groupId>
+                    <artifactId>allure-maven</artifactId>
+                    <version>${allure-maven-plugin.version}</version>
+                    <configuration>
+                        <reportVersion>${allure.version}</reportVersion>
+                        <resultsDirectory>${project.basedir}/allure-results</resultsDirectory>
                     </configuration>
                 </plugin>
                 </plugins>
