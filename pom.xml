@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
+<project> xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
@@ -21,11 +21,10 @@
         <seleniumhq.version>3.141.59</seleniumhq.version>
         <commons.io.version>2.6</commons.io.version>
         <webdrivermanager.version>3.8.1</webdrivermanager.version>
-        <allure-maven-plugin.version>2.10.0</allure-maven-plugin.version>
         <aspectjweaver.version>1.8.10</aspectjweaver.version>
         <allure.version>2.13.2</allure.version>
         <aspectj.version>1.8.10</aspectj.version>
-
+        <allure-maven-plugin.version>2.10.0</allure-maven-plugin.version>
     </properties>
 
     <dependencies>
@@ -68,13 +67,7 @@
             <version>${allure.version}</version>
             <scope>test</scope>
         </dependency>
-
-        <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjweaver</artifactId>
-            <version>${aspectj.version}</version>
-        </dependency>
-    </dependencies>
+        </dependencies>
 
     <profiles>
         <profile>
@@ -184,15 +177,21 @@
                             -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                         </argLine>
                     </configuration>
-
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.aspectj</groupId>
+                            <artifactId>aspectjweaver</artifactId>
+                            <version>${aspectj.version}</version>
+                        </dependency>
+                    </dependencies>
                 </plugin>
                 <plugin>
                     <groupId>io.qameta.allure</groupId>
                     <artifactId>allure-maven</artifactId>
                     <version>${allure-maven-plugin.version}</version>
                     <configuration>
-                        <reportVersion>${allure.version}</reportVersion>
-                        <resultsDirectory>${project.basedir}/allure-results</resultsDirectory>
+                    <reportVersion>${allure.version}</reportVersion>
+                    <resultsDirectory>${project.basedir}/allure-results</resultsDirectory>
                     </configuration>
                 </plugin>
                 </plugins>
