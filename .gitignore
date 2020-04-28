@@ -4,5 +4,7 @@
 /*.class
 /*.zip
 /*.war
-/allure-results/
-/.allure/
+**/allure-results
+**/.allure
+**/allure-report
+
