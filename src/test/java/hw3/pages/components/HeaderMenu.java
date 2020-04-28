@@ -14,16 +14,22 @@ public class HeaderMenu extends AbstractPageComponents {
 
     @FindBy(id = "user-icon")
     private WebElement userIcon;
+
     @FindBy(id = "name")
     private WebElement userNameInputField;
+
     @FindBy(id = "password")
     private WebElement passwordInputField;
+
     @FindBy(id = "login-button")
     private WebElement submitLoginButton;
+
     @FindBy(id = "user-name")
     private WebElement userName;
+
     @FindBy(css = ".m-l8 > li")
     List<WebElement> headerMenuItems;
+
     @FindBy(css = ".m-l8 .dropdown")
     private WebElement serviceMenu;
 

@@ -17,15 +17,17 @@
         <testing.version>7.0.0</testing.version>
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
+        <maven-clean-plugin.version>3.1.0</maven-clean-plugin.version>
         <calculator.version>1.0</calculator.version>
         <seleniumhq.version>3.141.59</seleniumhq.version>
         <commons.io.version>2.6</commons.io.version>
         <webdrivermanager.version>3.8.1</webdrivermanager.version>
+        <assertj.version>3.15.0</assertj.version>
+        <cucumber.version>5.6.0</cucumber.version>
         <allure-maven-plugin.version>2.10.0</allure-maven-plugin.version>
         <aspectjweaver.version>1.8.10</aspectjweaver.version>
         <allure.version>2.13.2</allure.version>
         <aspectj.version>1.8.10</aspectj.version>
-
     </properties>
 
     <dependencies>
@@ -66,6 +68,27 @@
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-testng</artifactId>
             <version>${allure.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>${assertj.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>${cucumber.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -143,16 +166,6 @@
         </profile>
 
         <profile>
-            <id>hw5-all-tests</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <properties>
-                <suite.xml>${project.basedir}/src/test/resources/suites/hw5/AllTests.xml</suite.xml>
-            </properties>
-        </profile>
-
-        <profile>
             <id>hw4-exercise1</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
@@ -180,7 +193,27 @@
             <properties>
                 <suite.xml>${project.basedir}/src/test/resources/suites/hw4/allTests.xml</suite.xml>
             </properties>
-            </profile>
+         </profile>
+
+        <profile>
+            <id>hw5-all-tests</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>${project.basedir}/src/test/resources/suites/hw5/AllTests.xml</suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>hw6-all-tests</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>${project.basedir}/src/test/resources/suites/hw6/AllTests.xml</suite.xml>
+            </properties>
+        </profile>
         </profiles>
 
     <build>

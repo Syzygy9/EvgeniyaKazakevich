@@ -13,7 +13,6 @@ public class Benefits extends AbstractPageComponents {
 
     @FindBy(className = "benefit-icon")
     private List<WebElement> benefitIcons;
-
     @FindBy(className = "benefit-txt")
     private List<WebElement> benefitTexts;
 
