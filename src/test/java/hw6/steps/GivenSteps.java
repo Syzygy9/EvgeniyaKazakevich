@@ -27,7 +27,7 @@ public class GivenSteps extends BaseStep {
     }
 
     @And("I login as user {string}")
-    public void iLoginAsUser(String name) throws IOException {
+    public void iLoginAsUser(String userName) throws IOException {
         String user = getProperty("user");
         String password = getProperty("password");
         new HomePage(getDriver()).login(user, password);
