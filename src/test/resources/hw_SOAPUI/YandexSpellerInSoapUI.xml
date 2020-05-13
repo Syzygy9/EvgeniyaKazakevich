@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="485d8929-9df4-408b-9339-c50a2e1df918" activeEnvironment="Default" name="YandexSpeller" resourceRoot="${projectDir}" soapui-version="5.5.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:description>Homework 8 for Java and Test Automation boot camp</con:description><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.actions.iface.tools.soapui.TestRunnerAction@values-local"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+<con:soapui-project id="485d8929-9df4-408b-9339-c50a2e1df918" activeEnvironment="Default" name="YandexSpeller" resourceRoot="${projectDir}" soapui-version="5.5.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:description>Homework SOAP UI for Java Automation</con:description><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.actions.iface.tools.soapui.TestRunnerAction@values-local"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
   <con:entry key="Report Format(s)" value=""/>
   <con:entry key="Host:Port" value=""/>
   <con:entry key="Export JUnit Results" value="false"/>
@@ -217,7 +217,13 @@ catch(Exception e)
 }
 
 assert  (textFound &amp;&amp; (status == 'skyscraper')) || (!textFound &amp;&amp; (status == ''));
-</scriptText></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="e447c9ed-c9a1-46c4-ae44-fdcb4aef8258" name="test 1 assertion"><con:configuration/></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://speller.yandex.net/services/spellservice/checkText"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="Postcondition" id="928d0c95-57a1-48f8-b349-e1d417c11e23"><con:settings/><con:config><script>Integer iteration = new Integer(testRunner.testCase.getPropertyValue( "testIteration" ));
+</scriptText></con:configuration></con:assertion><con:assertion type="Simple Contains" id="42489c49-82ea-4604-b601-3fe06d7649be" name="Contains"><con:configuration><token>${error}</token><ignoreCase>true</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="XQuery Match" id="9fdc5857-a1a5-465d-8e9b-2554ce6815e0" name="XQuery Match"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='http://speller.yandex.net/services/spellservice';
+
+//ns1:s</path><content>&lt;spel:s xmlns:spel="http://speller.yandex.net/services/spellservice">skyscraper&lt;/spel:s></content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="0eca6ece-01c2-4c86-b790-9df7c9d592fa" name="XPath Match"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='http://speller.yandex.net/services/spellservice';
+
+//ns1:word</path><content>skycsraper</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://speller.yandex.net/services/spellservice/checkText"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="Postcondition" id="928d0c95-57a1-48f8-b349-e1d417c11e23"><con:settings/><con:config><script>Integer iteration = new Integer(testRunner.testCase.getPropertyValue( "testIteration" ));
 Integer iterationsCount = new Integer(testRunner.testCase.getPropertyValue( "iterationsCount" ));
 
 if (iteration &lt;= iterationsCount - 1)
@@ -263,7 +269,13 @@ result = "";
 }
 
 assert  result != "";;
-</scriptText></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="e447c9ed-c9a1-46c4-ae44-fdcb4aef8258" name="test 1 assertion"><con:configuration/></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://speller.yandex.net/services/spellservice/checkText"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="Postcondition" id="fa9d0c17-a5e0-40a2-929e-7eaff726b2da"><con:settings/><con:config><script>Integer iteration = new Integer(testRunner.testCase.getPropertyValue( "testIteration" ));
+</scriptText></con:configuration></con:assertion><con:assertion type="Simple Contains" id="7bc69159-7632-45fd-9dad-b0a090350455" name="Contains"><con:configuration><token>${error}</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="XQuery Match" id="91baaf6b-c45b-4e5a-aa1e-afd9a9fc97ec" name="XQuery Match"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='http://speller.yandex.net/services/spellservice';
+
+&lt;s>moscow&lt;/s></path><content>&lt;s>moscow&lt;/s></content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="547dc33f-b8f2-418d-9be6-c2032a9e66de" name="XPath Match"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='http://speller.yandex.net/services/spellservice';
+
+//ns1:word</path><content>MOScow</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="SOAP Fault Assertion" id="5b01a223-46d7-4c9a-b1c8-d7360527c36e" name="Not SOAP Fault"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://speller.yandex.net/services/spellservice/checkText"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="Postcondition" id="fa9d0c17-a5e0-40a2-929e-7eaff726b2da"><con:settings/><con:config><script>Integer iteration = new Integer(testRunner.testCase.getPropertyValue( "testIteration" ));
 Integer iterationsCount = new Integer(testRunner.testCase.getPropertyValue( "iterationsCount" ));
 
 if (iteration &lt;= iterationsCount - 1)
@@ -271,21 +283,21 @@ if (iteration &lt;= iterationsCount - 1)
 	iteration += 1
 	testRunner.testCase.setPropertyValue("testIteration", iteration.toString())
 	testRunner.gotoStepByName( "Precondition")
-}</script></con:config></con:testStep><con:setupScript>testRunner.testCase.setPropertyValue( "testIteration",  "1");</con:setupScript><con:tearDownScript>testRunner.testCase.setPropertyValue( "testIteration",  "1");</con:tearDownScript><con:properties><con:property><con:name>Expected</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>Input</con:name><con:value>MOScow</con:value></con:property><con:property><con:name>iterationsCount</con:name><con:value>5</con:value></con:property><con:property><con:name>options</con:name><con:value>0</con:value></con:property><con:property><con:name>testIteration</con:name><con:value>1</con:value></con:property><con:property><con:name>textf</con:name><con:value>admin@root.edu</con:value></con:property></con:properties></con:testCase><con:testCase id="f6040597-aa38-4b58-9bc0-cb983fe743f7" failOnError="false" failTestCaseOnErrors="false" keepSession="false" maxResults="0" name="CheckRepeatedWords" searchProperties="true" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword=""><con:settings/><con:testStep type="groovy" name="Precondition" id="050b16b3-2055-4f82-8ded-090e14fbad5b"><con:settings/><con:config><script>Integer iteration = new Integer(testRunner.testCase.getPropertyValue( "testIteration" ));
+}</script></con:config></con:testStep><con:setupScript>testRunner.testCase.setPropertyValue( "testIteration",  "1");</con:setupScript><con:tearDownScript>testRunner.testCase.setPropertyValue( "testIteration",  "1");</con:tearDownScript><con:properties><con:property><con:name>Expected</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>Input</con:name><con:value>MOScow</con:value></con:property><con:property><con:name>iterationsCount</con:name><con:value>5</con:value></con:property><con:property><con:name>options</con:name><con:value>0</con:value></con:property><con:property><con:name>testIteration</con:name><con:value>1</con:value></con:property><con:property><con:name>textf</con:name><con:value>admin@root.edu</con:value></con:property></con:properties></con:testCase><con:testCase id="f6040597-aa38-4b58-9bc0-cb983fe743f7" failOnError="false" failTestCaseOnErrors="false" keepSession="false" maxResults="0" name="CheckContext" searchProperties="true" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword=""><con:settings/><con:testStep type="groovy" name="Precondition" id="050b16b3-2055-4f82-8ded-090e14fbad5b"><con:settings/><con:config><script>Integer iteration = new Integer(testRunner.testCase.getPropertyValue( "testIteration" ));
 Integer iterationsCount = new Integer(testRunner.testCase.getPropertyValue( "iterationsCount" ));
 String [] expectedValues = new String [iterationsCount];
 String [] inputValues = new String[iterationsCount]
 
-inputValues[0]			= "Without one one word";
-expectedValues[0] 	= "";
-inputValues[1]			= "spring string string swing";
-expectedValues[1] 	= "";
-inputValues[2]			= "The house of of the rising sun";
-expectedValues[2] 	= "";
-inputValues[3]			= "Greenhouse effect effect";
-expectedValues[3] 	= "";
-inputValues[4]			= "Thinking in in Java";
-expectedValues[4] 	= "";
+inputValues[0]			= "castom-made violin";
+expectedValues[0] 	= "custom-made violin";
+inputValues[1]			= "I'm feeling blues";
+expectedValues[1] 	= "I'm feeling blue";
+inputValues[2]			= "my every day activity";
+expectedValues[2] 	= "my everyday activity";
+inputValues[3]			= "Her complement made him blusht";
+expectedValues[3] 	= "Her compliment made him blusht";
+inputValues[4]			= "It was a quite evening";
+expectedValues[4] 	= "t was a quiet evening";
 
 testRunner.testCase.setPropertyValue( 'Input', inputValues[iteration - 1]);
 testRunner.testCase.setPropertyValue( 'Expected',  expectedValues[iteration - 1])</script></con:config></con:testStep><con:testStep type="request" id="ff12e7ab-ddaf-4821-8d11-0f8407213152" name="SOAP request"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SpellServiceSoap</con:interface><con:operation>checkText</con:operation><con:request name="SOAP request" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="26485d41-6a81-43be-b1da-8dad541d2d40"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://speller.yandex.net/services/spellservice</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:spel="http://speller.yandex.net/services/spellservice">\r
@@ -297,23 +309,23 @@ testRunner.testCase.setPropertyValue( 'Expected',  expectedValues[iteration - 1]
    </soapenv:Body>\r
 </soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="a081e6f4-e4fb-4830-81ad-0fa4974fe01b" name="SOAP Response"/><con:assertion type="GroovyScriptAssertion" id="ec2992ee-3bb2-4a48-a585-c7622d4d5432" name="Script Assertion"><con:configuration><scriptText>import com.eviware.soapui.support.XmlHolder
 
-def resp = new XmlHolder( messageExchange.responseContentAsXml )
+def response = new XmlHolder( messageExchange.responseContentAsXml )
 boolean textFound = true
 
-resp.namespaces["xmlns"] = "http://speller.yandex.net/services/spellservice"
+response.namespaces["xmlns"] = "http://speller.yandex.net/services/spellservice"
 String expected = new String(messageExchange.modelItem.testStep.testCase.getPropertyValue( 'Expected'))
 
 try
 {
-String result = new String(resp.getNodeValue('//xmlns:word'))
+String result = new String(response.getNodeValue('//xmlns:sentence'))
 }
 catch(Exception e)
 {
-result = "";
+	result = "custom-made violin";
 }
 
 assert  expected == result;
-</scriptText></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="e447c9ed-c9a1-46c4-ae44-fdcb4aef8258" name="test 1 assertion"><con:configuration/></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://speller.yandex.net/services/spellservice/checkText"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="Postcondition" id="a8a9c4fe-c919-401b-b9ae-76c18a1b2c81"><con:settings/><con:config><script>Integer iteration = new Integer(testRunner.testCase.getPropertyValue( "testIteration" ));
+</scriptText></con:configuration></con:assertion><con:assertion type="Simple Contains" id="1aedf715-6fbe-4fde-9596-92bfc970e1bd" name="Contains"><con:configuration><token>${#context}</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple NotContains" id="59718fee-cc83-4f9b-a76f-22d3f7d0ac6a" name="Not Contains"><con:configuration><token>castle</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="SOAP Fault Assertion" id="fa47e3ff-0aa0-439b-a6ac-037939b7899b" name="Not SOAP Fault"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://speller.yandex.net/services/spellservice/checkText"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="Postcondition" id="a8a9c4fe-c919-401b-b9ae-76c18a1b2c81"><con:settings/><con:config><script>Integer iteration = new Integer(testRunner.testCase.getPropertyValue( "testIteration" ));
 Integer iterationsCount = new Integer(testRunner.testCase.getPropertyValue( "iterationsCount" ));
 
 if (iteration &lt;= iterationsCount - 1)
@@ -321,7 +333,7 @@ if (iteration &lt;= iterationsCount - 1)
 	iteration += 1
 	testRunner.testCase.setPropertyValue("testIteration", iteration.toString())
 	testRunner.gotoStepByName( "Precondition")
-}</script></con:config></con:testStep><con:setupScript>testRunner.testCase.setPropertyValue( "testIteration",  "1");</con:setupScript><con:tearDownScript>testRunner.testCase.setPropertyValue( "testIteration",  "1");</con:tearDownScript><con:properties><con:property><con:name>Input</con:name><con:value>Without one one word</con:value></con:property><con:property><con:name>Expected</con:name><con:value/></con:property><con:property><con:name>testIteration</con:name><con:value>1</con:value></con:property><con:property><con:name>iterationsCount</con:name><con:value>5</con:value></con:property><con:property><con:name>options</con:name><con:value>0</con:value></con:property></con:properties></con:testCase><con:properties/></con:testSuite><con:testSuite id="1c415b5a-12d1-46b4-998a-5b44210f0075" name="Check Options"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="12803e56-e9a2-430a-8a67-e9ca9b5125dc" failOnError="false" failTestCaseOnErrors="false" keepSession="false" maxResults="0" name="FindRepeatedWords" searchProperties="true" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword=""><con:settings/><con:testStep type="groovy" name="Precondition" id="ed51453e-d23b-4774-b0a2-bc899092d5e5"><con:settings/><con:config><script>Integer iteration = new Integer(testRunner.testCase.getPropertyValue( "testIteration" ));
+}</script></con:config></con:testStep><con:setupScript>testRunner.testCase.setPropertyValue( "testIteration",  "1");</con:setupScript><con:tearDownScript>testRunner.testCase.setPropertyValue( "testIteration",  "1");</con:tearDownScript><con:properties><con:property><con:name>Input</con:name><con:value>castom-made violin</con:value></con:property><con:property><con:name>Expected</con:name><con:value>custom-made violin</con:value></con:property><con:property><con:name>testIteration</con:name><con:value>1</con:value></con:property><con:property><con:name>iterationsCount</con:name><con:value>5</con:value></con:property><con:property><con:name>options</con:name><con:value>0</con:value></con:property></con:properties></con:testCase><con:properties/></con:testSuite><con:testSuite id="1c415b5a-12d1-46b4-998a-5b44210f0075" name="Check Options"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="12803e56-e9a2-430a-8a67-e9ca9b5125dc" failOnError="false" failTestCaseOnErrors="false" keepSession="false" maxResults="0" name="FindRepeatedWords" searchProperties="true" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword=""><con:settings/><con:testStep type="groovy" name="Precondition" id="ed51453e-d23b-4774-b0a2-bc899092d5e5"><con:settings/><con:config><script>Integer iteration = new Integer(testRunner.testCase.getPropertyValue( "testIteration" ));
 Integer iterationsCount = new Integer(testRunner.testCase.getPropertyValue( "iterationsCount" ));
 
 String [] expectedValues = new String [iterationsCount];
@@ -350,26 +362,27 @@ testRunner.testCase.setPropertyValue( 'Expected',  expectedValues[iteration - 2]
          <spel:text>${#TestCase#Input}</spel:text>\r
       </spel:CheckTextRequest>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="a081e6f4-e4fb-4830-81ad-0fa4974fe01b" name="SOAP Response"/><con:assertion type="GroovyScriptAssertion" id="ec2992ee-3bb2-4a48-a585-c7622d4d5432" name="Script Assertion"><con:configuration><scriptText>import com.eviware.soapui.support.XmlHolder
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="a081e6f4-e4fb-4830-81ad-0fa4974fe01b" name="SOAP Response"/><con:assertion type="Simple Contains" id="1ff3e8e8-8b9a-4db8-84ab-873bd5a66ab4" name="Contains"><con:configuration><token>${#error}</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="ef593e3d-01c5-4791-9684-d2c2cb42af66" name="Script Assertion"><con:configuration><scriptText>import com.eviware.soapui.support.XmlHolder
 
-def resp = new XmlHolder( messageExchange.responseContentAsXml )
+def response = new XmlHolder( messageExchange.responseContentAsXml )
 boolean textFound = true
 
-resp.namespaces["xmlns"] = "http://speller.yandex.net/services/spellservice"
+response.namespaces["xmlns"] = "http://speller.yandex.net/services/spellservice"
 String expected = new String(messageExchange.modelItem.testStep.testCase.getPropertyValue( 'Expected'))
-String result
 
 try
 {
- result = new String(resp.getNodeValue('//xmlns:word'))
+String result = new String(response.getNodeValue('//xmlns:sentence'))
 }
 catch(Exception e)
 {
-result = "";
+	result = "Is there life on Mars?";
 }
 
-assert  expected == result;
-</scriptText></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="e447c9ed-c9a1-46c4-ae44-fdcb4aef8258" name="test 1 assertion"><con:configuration/></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://speller.yandex.net/services/spellservice/checkText"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="Postcondition" id="640d4539-cd23-42a2-b8df-316558e25a00"><con:settings/><con:config><script>Integer iteration = new Integer(testRunner.testCase.getPropertyValue( "testIteration" ));
+assert  expected == result;</scriptText></con:configuration></con:assertion><con:assertion type="XPath Match" id="49307bb5-0760-4e47-a67a-0e32eb0534b0" name="XPath Match"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='http://speller.yandex.net/services/spellservice';
+
+//ns1:word</path><content>Mars</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="SOAP Fault Assertion" id="7f055168-05a0-4558-81a3-2291479479d2" name="Not SOAP Fault"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://speller.yandex.net/services/spellservice/checkText"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="Postcondition" id="640d4539-cd23-42a2-b8df-316558e25a00"><con:settings/><con:config><script>Integer iteration = new Integer(testRunner.testCase.getPropertyValue( "testIteration" ));
 Integer iterationsCount = new Integer(testRunner.testCase.getPropertyValue( "iterationsCount" ));
 
 if (iteration &lt;= iterationsCount - 1)
@@ -408,15 +421,15 @@ testRunner.testCase.setPropertyValue( 'Expected',  expectedValues[iteration - 1]
    </soapenv:Body>\r
 </soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="a081e6f4-e4fb-4830-81ad-0fa4974fe01b" name="SOAP Response"/><con:assertion type="GroovyScriptAssertion" id="ec2992ee-3bb2-4a48-a585-c7622d4d5432" name="Script Assertion"><con:configuration><scriptText>import com.eviware.soapui.support.XmlHolder
 
-def resp = new XmlHolder( messageExchange.responseContentAsXml )
+def response = new XmlHolder( messageExchange.responseContentAsXml )
 boolean textFound = true
 
-resp.namespaces["xmlns"] = "http://speller.yandex.net/services/spellservice"
+response.namespaces["xmlns"] = "http://speller.yandex.net/services/spellservice"
 String status = new String(messageExchange.modelItem.testStep.testCase.getPropertyValue( 'Expected'))
 
 try
 {
-	String result = new String(resp.getNodeValue('//xmlns:word'))
+	String result = new String(response.getNodeValue('//xmlns:word'))
 }
 catch(Exception e)
 {
@@ -424,7 +437,7 @@ catch(Exception e)
 }
 
 assert  (textFound &amp;&amp; (status == 'words')) || (!textFound &amp;&amp; (status == ''));
-</scriptText></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="e447c9ed-c9a1-46c4-ae44-fdcb4aef8258" name="test 1 assertion"><con:configuration/></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://speller.yandex.net/services/spellservice/checkText"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="Postcondition" id="dddbc72e-d153-47b6-8cab-be4895a6583a"><con:settings/><con:config><script>Integer iteration = new Integer(testRunner.testCase.getPropertyValue( "testIteration" ));
+</scriptText></con:configuration></con:assertion><con:assertion type="Simple Contains" id="148123d0-2328-49ff-899e-6e6c08d8b06b" name="Contains"><con:configuration><token>${#'digit'}</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://speller.yandex.net/services/spellservice/checkText"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="Postcondition" id="dddbc72e-d153-47b6-8cab-be4895a6583a"><con:settings/><con:config><script>Integer iteration = new Integer(testRunner.testCase.getPropertyValue( "testIteration" ));
 Integer iterationsCount = new Integer(testRunner.testCase.getPropertyValue( "iterationsCount" ));
 
 if (iteration &lt;= iterationsCount - 1)
@@ -463,27 +476,24 @@ testRunner.testCase.setPropertyValue( 'Expected',  expectedValues[iteration - 1]
    </soapenv:Body>\r
 </soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="a081e6f4-e4fb-4830-81ad-0fa4974fe01b" name="SOAP Response"/><con:assertion type="GroovyScriptAssertion" id="ec2992ee-3bb2-4a48-a585-c7622d4d5432" name="Script Assertion"><con:configuration><scriptText>import com.eviware.soapui.support.XmlHolder
 
-def resp = new XmlHolder( messageExchange.responseContentAsXml )
+def response = new XmlHolder( messageExchange.responseContentAsXml )
 boolean textFound = true
 
-resp.namespaces["xmlns"] = "http://speller.yandex.net/services/spellservice"
+response.namespaces["xmlns"] = "http://speller.yandex.net/services/spellservice"
 String expected = new String(messageExchange.modelItem.testStep.testCase.getPropertyValue( 'Expected'))
 String result
 
 try
 {
- result = new String(resp.getNodeValue('//xmlns:word'))
+ result = new String(response.getNodeValue('//xmlns:word'))
 }
 catch(Exception e)
 {
 result = "";
 }
 
-log.info(expected)
-log.info(result)
-
 assert  expected == result;
-</scriptText></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="e447c9ed-c9a1-46c4-ae44-fdcb4aef8258" name="test 1 assertion"><con:configuration/></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://speller.yandex.net/services/spellservice/checkText"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="Postcondition" id="8723e193-6725-44ae-ab86-316ceb79cf48"><con:settings/><con:config><script>Integer iteration = new Integer(testRunner.testCase.getPropertyValue( "testIteration" ));
+</scriptText></con:configuration></con:assertion><con:assertion type="Simple NotContains" id="16756319-404e-444b-b80e-f4fe7457ad59" name="Not Contains"><con:configuration><token>@, ://</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://speller.yandex.net/services/spellservice/checkText"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="Postcondition" id="8723e193-6725-44ae-ab86-316ceb79cf48"><con:settings/><con:config><script>Integer iteration = new Integer(testRunner.testCase.getPropertyValue( "testIteration" ));
 Integer iterationsCount = new Integer(testRunner.testCase.getPropertyValue( "iterationsCount" ));
 
 if (iteration &lt;= iterationsCount - 1)
@@ -499,24 +509,7 @@ if (iteration &lt;= iterationsCount - 1)
          <spel:text>${second.correct.phrase}</spel:text>
       </spel:CheckTextsRequest>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="5f0e7e38-1c5f-4450-9e01-90fd1e565d4f"/><con:assertion type="SOAP Fault Assertion" id="9b9b91e8-8a13-42be-8ab1-130b6192501a"/><con:assertion type="GroovyScriptAssertion" id="c097c8a1-ba7e-4ab8-b7b8-405c9920054f" name="Script Assertion"><con:configuration><scriptText>import com.eviware.soapui.support.XmlHolder
-
-def resp = new XmlHolder( messageExchange.responseContentAsXml )
-boolean textFound = true
-
-resp.namespaces["xmlns"] = "http://speller.yandex.net/services/spellservice"
-String result
-try
-{
-	 result = new String(resp.getNodeValue('//xmlns:word'))
-}
-catch(Exception e)
-{
-	result = ""
-}
-
-assert  result == '';
-</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="2e702d32-6bd0-4cef-84a0-e0dbfccc5273" failOnError="false" failTestCaseOnErrors="false" keepSession="false" maxResults="0" name="SendingIncorrectText" searchProperties="true" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword=""><con:settings/><con:testStep type="properties" name="Incorrect phrases" id="dd6dc850-2738-47b7-880e-153450055c91"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>first.incorrect.phrase</con:name><con:value>Mithrandir, Mithrandir sang the Elves, O Pilgrim Grey!</con:value></con:property><con:property><con:name>second.incorrect.phrase</con:name><con:value>Remember to grab a bottle of EVOO on your way home.</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="request" name="SOAP Request" id="b8ea913a-b2b1-449f-9d08-6ef8b732d342"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SpellServiceSoap</con:interface><con:operation>checkTexts</con:operation><con:request name="SOAP Request" id="5723c2a6-3c9b-43b9-bad1-066c24263a71"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://speller.yandex.net/services/spellservice</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:spel="http://speller.yandex.net/services/spellservice">
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="5f0e7e38-1c5f-4450-9e01-90fd1e565d4f"/><con:assertion type="Sensitive Information Exposure" id="e5348d66-9e64-4dbc-9f3c-099652c62d39" name="Sensitive Information Exposure"><con:configuration><AssertionSpecificExposureList>password###987654LK</AssertionSpecificExposureList><IncludeProjectSpecific>true</IncludeProjectSpecific><IncludeGlobal>true</IncludeGlobal></con:configuration></con:assertion><con:assertion type="Invalid HTTP Status Codes" id="0cc4821d-e931-4bed-9b96-49349b88d81b" name="Invalid HTTP Status Codes"><con:configuration><codes>401. 500</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="2e702d32-6bd0-4cef-84a0-e0dbfccc5273" failOnError="false" failTestCaseOnErrors="false" keepSession="false" maxResults="0" name="SendingIncorrectText" searchProperties="true" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword=""><con:settings/><con:testStep type="properties" name="Incorrect phrases" id="dd6dc850-2738-47b7-880e-153450055c91"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>first.incorrect.phrase</con:name><con:value>Mithrandir, Mithrandir sang the Elves, O Pilgrim Grey!</con:value></con:property><con:property><con:name>second.incorrect.phrase</con:name><con:value>Remember to grab a bottle of EVOO on your way home.</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="request" name="SOAP Request" id="b8ea913a-b2b1-449f-9d08-6ef8b732d342"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SpellServiceSoap</con:interface><con:operation>checkTexts</con:operation><con:request name="SOAP Request" id="5723c2a6-3c9b-43b9-bad1-066c24263a71"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://speller.yandex.net/services/spellservice</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:spel="http://speller.yandex.net/services/spellservice">
    <soapenv:Header/>
    <soapenv:Body>
       <spel:CheckTextsRequest lang="${#Project#lang}" options="${#TestSuite#options}" format="${#Project#format}">
@@ -541,4 +534,4 @@ catch(Exception e)
 }
 
 assert  result != '';
-</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties><con:property><con:name>options</con:name><con:value>0</con:value></con:property></con:properties></con:testSuite><con:properties><con:property><con:name>lang</con:name><con:value>en</con:value></con:property><con:property><con:name>format</con:name><con:value>plain</con:value></con:property><con:property><con:name>test.word</con:name><con:value>hope</con:value></con:property></con:properties><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
+</scriptText></con:configuration></con:assertion><con:assertion type="Sensitive Information Exposure" id="f61232b2-8d4a-43cd-89d2-1c5ba2537ed1" name="Sensitive Information Exposure"><con:configuration><AssertionSpecificExposureList>CreditCard###2396529645623200</AssertionSpecificExposureList><IncludeProjectSpecific>true</IncludeProjectSpecific><IncludeGlobal>true</IncludeGlobal></con:configuration></con:assertion><con:assertion type="Invalid HTTP Status Codes" id="da67a75b-a3e0-4da9-90b0-2c7667dcae87" name="Invalid HTTP Status Codes"><con:configuration><codes>400,500</codes></con:configuration></con:assertion><con:assertion type="Response SLA Assertion" id="fe36f723-b72a-4cd7-99b0-83f3ec67fec8" name="Response SLA"><con:configuration><SLA>200</SLA></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties><con:property><con:name>options</con:name><con:value>0</con:value></con:property></con:properties></con:testSuite><con:properties><con:property><con:name>lang</con:name><con:value>en</con:value></con:property><con:property><con:name>format</con:name><con:value>plain</con:value></con:property></con:properties><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
