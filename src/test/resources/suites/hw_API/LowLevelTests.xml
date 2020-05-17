@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Low level tests">
+    <test name="low level tests">
+        <packages>
+            <package name="hw_API.lowLevelTests"/>
+        </packages>
+    </test>
+</suite>
