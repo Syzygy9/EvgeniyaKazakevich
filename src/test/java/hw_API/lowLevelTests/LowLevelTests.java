@@ -1,6 +1,7 @@
 package hw_API.lowLevelTests;
 
 import hw_API.service.URI;
+import hw_API.utils.ConfigProperties;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.filter.log.RequestLoggingFilter;

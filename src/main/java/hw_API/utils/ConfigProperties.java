@@ -1,26 +1,26 @@
 package hw_API.utils;
 
-import java.util.Properties;
-import java.io.FileInputStream;
+import lombok.SneakyThrows;
+
 import java.io.IOException;
-import java.io.InputStream;
+import java.util.Properties;
 
 public class ConfigProperties {
 
-    private static final String PATH = "src/test/resources/hw_API/config.properties";
+    @SneakyThrows
+    public static Properties getProperties() {
 
-    public static String getProperties(String property) {
-
-        try (InputStream inputStream = new FileInputStream(PATH)) {
-            Properties properties = new Properties();
-
-            properties.load(inputStream);
-            return (properties.getProperty(property));
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
+        Properties properties = new Properties();
+        String propertyPath = "hw_API/config.properties";
+        try {
+            properties.load(ConfigProperties.class.getClassLoader()
+                    .getResourceAsStream(propertyPath));
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        return property;
+        return properties;
     }
-
-
 }
+
+
+

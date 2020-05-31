@@ -1,5 +1,8 @@
 package hw_API.enums;
 
+import lombok.Getter;
+
+@Getter
 public enum YandexSpellerLanguages {
 
     RUS("rus"),

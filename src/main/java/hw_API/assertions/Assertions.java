@@ -17,35 +17,49 @@ public class Assertions {
     }
 
     public Assertions verifyChoices(String expected) {
-        assertThat(result[0].getS().get(0)).isEqualTo(expected);
+        assertThat(result[0].getS().get(0))
+                .withFailMessage("The word %s not equals %s", result[0].getS().get(0), expected)
+                .isEqualTo(expected);
         return this;
     }
 
     public Assertions verifyErrorCode(Integer code) {
-        assertThat(result[0].getCode()).isEqualTo(code);
+        assertThat(result[0].getCode())
+                .withFailMessage("Error code is %s but expected %s", result[0].getCode(), code)
+                .isEqualTo(code);
         return this;
     }
 
     public Assertions verifyOriginalWord(String word) {
-        assertThat(this.result[0].getWord()).isEqualTo(word);
+        assertThat(this.result[0].getWord())
+                .withFailMessage("The word %s not equals %s", result[0].getWord(), word)
+                .isEqualTo(word);
         return this;
     }
 
     public void verifyEmptyResponse() {
-        assertThat(result).isEmpty();
+        assertThat(result)
+                .withFailMessage("Failed asserting that response is empty", result.toString())
+                .isEmpty();
     }
 
     public Assertions verifyNotEmptyResponse() {
-        assertThat(result).isNotEmpty();
+        assertThat(result)
+                .withFailMessage("Failed asserting that response is not empty")
+                .isNotEmpty();
         return this;
     }
 
     public void verifyEmptyBodyResponse() {
-        assertThat(results[0]).isEmpty();
+        assertThat(results[0])
+                .withFailMessage("Failed asserting that response is empty", results[0].toString())
+                .isEmpty();
     }
 
     public Assertions verifyNotEmptyBodyResponse() {
-        assertThat(results[0]).isNotEmpty();
+        assertThat(results[0])
+                .withFailMessage("Failed asserting that response is not empty")
+                .isNotEmpty();
         return this;
     }
 }

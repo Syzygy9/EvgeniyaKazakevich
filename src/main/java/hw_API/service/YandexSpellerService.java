@@ -1,5 +1,6 @@
 package hw_API.service;
 
+import hw_API.utils.ConfigProperties;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.filter.log.RequestLoggingFilter;
@@ -9,7 +10,7 @@ import io.restassured.specification.RequestSpecification;
 
 import java.util.Map;
 
-import static hw_API.service.URI.*;
+import static hw_API.service.URI.BASE_URI;
 import static io.restassured.RestAssured.given;
 
 public class YandexSpellerService {

@@ -10,5 +10,4 @@ public class YandexSpellerParams {
     public static final String PARAM_LANG = "lang";
     public static final String PARAM_FORMAT = "format";
 
-
-    }
+}

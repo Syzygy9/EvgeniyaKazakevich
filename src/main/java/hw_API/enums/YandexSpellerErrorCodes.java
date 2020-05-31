@@ -1,5 +1,8 @@
 package hw_API.enums;
 
+import lombok.Getter;
+
+@Getter
 public enum YandexSpellerErrorCodes {
 
     ERROR_UNKNOWN_WORD(1),
