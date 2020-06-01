@@ -21,13 +21,21 @@
         <calculator.version>1.0</calculator.version>
         <seleniumhq.version>3.141.59</seleniumhq.version>
         <commons.io.version>2.6</commons.io.version>
-        <webdrivermanager.version>3.8.1</webdrivermanager.version>
         <assertj.version>3.15.0</assertj.version>
         <cucumber.version>5.6.0</cucumber.version>
         <allure-maven-plugin.version>2.10.0</allure-maven-plugin.version>
         <aspectjweaver.version>1.8.10</aspectjweaver.version>
         <allure.version>2.13.2</allure.version>
         <aspectj.version>1.8.10</aspectj.version>
+        <driver>chrome</driver>
+        <domain>https://jdi-testing.github.io/jdi-light/</domain>
+        <jdi.version>1.2.3</jdi.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <lombok.version>1.18.10</lombok.version>
+        <jackson.version>1.9.13</jackson.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <guava.version>22.0</guava.version>
     </properties>
 
     <dependencies>
@@ -47,21 +55,9 @@
         </dependency>
 
         <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-java</artifactId>
-            <version>${seleniumhq.version}</version>
-        </dependency>
-
-        <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
             <version>${commons.io.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>io.github.bonigarcia</groupId>
-            <artifactId>webdrivermanager</artifactId>
-            <version>${webdrivermanager.version}</version>
         </dependency>
 
         <dependency>
@@ -90,6 +86,37 @@
             <artifactId>cucumber-testng</artifactId>
             <version>${cucumber.version}</version>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.epam.jdi</groupId>
+            <artifactId>jdi-light-html</artifactId>
+            <version>${jdi.version}</version>
+        </dependency>
+
+        <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <version>${lombok.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-core-asl</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${guava.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>7.1.0</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 
@@ -208,10 +235,20 @@
         <profile>
             <id>hw6-all-tests</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <suite.xml>${project.basedir}/src/test/resources/suites/hw6/AllTests.xml</suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>hw_jdi</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src\test\resources\suites\hw_Jdi\AllTests.xml</suite.xml>
             </properties>
         </profile>
         </profiles>
@@ -259,5 +296,18 @@
                 </configuration>
             </plugin>
         </plugins>
+
+        <resources>
+            <resource>
+                <directory>${project.basedir}/src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <testResources>
+            <testResource>
+                <directory>${project.basedir}/src/test/resources</directory>
+                <filtering>true</filtering>
+            </testResource>
+        </testResources>
     </build>
 </project>
