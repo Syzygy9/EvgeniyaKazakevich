@@ -20,7 +20,7 @@
         <maven-clean-plugin.version>3.1.0</maven-clean-plugin.version>
         <calculator.version>1.0</calculator.version>
         <seleniumhq.version>3.141.59</seleniumhq.version>
-        <commons.io.version>2.6</commons.io.version>
+        <commons.io.version>2.7</commons.io.version>
         <assertj.version>3.15.0</assertj.version>
         <cucumber.version>5.6.0</cucumber.version>
         <allure-maven-plugin.version>2.10.0</allure-maven-plugin.version>
